@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102a43" />
+  <title>FinanceFlow | Controle Financeiro</title>
+  <link rel="stylesheet" href="/style.css?v=2" />
+  <script src="/script.js?v=2"s" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topo">
+      <div class="marca">
+        <div class="logo">F</div>
+        <div>
+          <h1>FinanceFlow</h1>
+          <p>Seu dinheiro, suas escolhas.</p>
+        </div>
+      </div>
+      <span class="etiqueta">Finanças conscientes</span>
+    </header>
+
+    <main>
+      <section class="apresentacao">
+        <span class="sobretitulo">VISÃO FINANCEIRA</span>
+        <h2>Cuide bem do seu dinheiro.</h2>
+        <p>
+          Acompanhe suas finanças e reflita sobre
+          seus hábitos de consumo.
+        </p>
+      </section>
+
+      <nav class="abas" aria-label="Navegação principal">
+        <button
+          id="btn-dashboard"
+          class="aba ativa"
+          type="button"
+          aria-pressed="true"
+        >
+          Visão geral
+        </button>
+        <button
+          id="btn-formulario"
+          class="aba"
+          type="button"
+          aria-pressed="false"
+        >
+          + Nova transação
+        </button>
+      </nav>
+
+      <section id="dashboard" class="tela">
+        <div class="cartoes">
+          <article class="cartao saldo">
+            <span>Saldo total</span>
+            <strong id="saldo-total">R$ 0,00</strong>
+            <small>Receitas menos despesas</small>
+          </article>
+
+          <article class="cartao">
+            <span>Total de despesas</span>
+            <strong id="total-despesas">R$ 0,00</strong>
+            <small>Valor registrado em despesas</small>
+          </article>
+
+          <article class="cartao impulso">
+            <span>Gastos por impulso</span>
+            <strong id="total-impulso">R$ 0,00</strong>
+            <small>Atenção às compras não planejadas</small>
+          </article>
+        </div>
+
+        <div class="secao-cabecalho">
+          <div>
+            <span class="sobretitulo">MOVIMENTAÇÕES</span>
+            <h2>Seu extrato</h2>
+          </div>
+          <button id="atualizar" class="botao-texto" type="button">
+            Atualizar
+          </button>
+        </div>
+
+        <div id="mensagem-dashboard" class="mensagem" role="status"></div>
+
+        <div id="lista-transacoes" class="lista-transacoes">
+          <p class="vazio">Carregando transações...</p>
+        </div>
+
+        <aside class="reflexao">
+          <span>🌱 Consumo consciente</span>
+          <p>
+            Pequenas escolhas fazem diferença.
+            Observe seus gastos por impulso e
+            priorize aquilo que realmente importa.
+          </p>
+        </aside>
+      </section>
+
+      <section id="formulario-tela" class="tela oculta">
+        <div class="secao-cabecalho">
+          <div>
+            <span class="sobretitulo">NOVO LANÇAMENTO</span>
+            <h2>Registrar transação</h2>
+          </div>
+        </div>
+
+        <form id="form-transacao" class="formulario">
+          <label for="descricao">Descrição</label>
+          <input
+            id="descricao"
+            name="descricao"
+            type="text"
+            placeholder="Ex.: Compras no mercado"
+            maxlength="120"
+            required
+          />
+
+          <label for="valor">Valor (R$)</label>
+          <input
+            id="valor"
+            name="valor"
+            type="number"
+            min="0.01"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="0,00"
+            required
+          />
+
+          <label for="tipo">Tipo de transação</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione</option>
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa</option>
+          </select>
+
+          <label for="categoria">Categoria</label>
+          <input
+            id="categoria"
+            name="categoria"
+            type="text"
+            placeholder="Ex.: Alimentação, transporte, salário"
+            required
+          />
+
+          <fieldset>
+            <legend>Como você classifica este gasto?</legend>
+
+            <label class="opcao">
+              <input
+                type="radio"
+                name="consumoConsciente"
+                value="true"
+                checked
+              />
+              <span>
+                <strong>Consciente / Essencial</strong>
+                <small>Compra planejada ou necessária</small>
+              </span>
+            </label>
+
+            <label class="opcao">
+              <input
+                type="radio"
+                name="consumoConsciente"
+                value="false"
+              />
+              <span>
+                <strong>Por impulso</strong>
+                <small>Compra não planejada</small>
+              </span>
+            </label>
+          </fieldset>
+
+          <div id="mensagem-formulario" class="mensagem" role="status"></div>
+
+          <button id="salvar" class="botao-principal" type="submit">
+            Salvar transação
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      FinanceFlow API • Controle financeiro e consumo consciente
+    </footer>
+  </div>
+</body>
+</html>
